@@ -5,16 +5,24 @@ import ImageGrid from './components/ImageGrid';
 import Pagination from './components/Pagination';
 
 function App() {
-  const darkMode = useSelector((state) => state.theme.darkMode); // Access dark mode state from Redux
+  const darkMode = useSelector((state) => state.theme?.darkMode || false); // Safely access dark mode state
 
   return (
     <div
-      className={`py-2 min-h-screen transition-colors duration-300 ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}
+      className={`py-6 min-h-screen transition-colors duration-300 ${
+        darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'
+      }`}
     >
-      <h1 className='text-4xl font-bold text-center font-mono'>Photo Gallery</h1>
-      <DarkModeToggle />
-      <ImageGrid />
-      <Pagination />
+      <header className="mb-6">
+        <h1 className="text-4xl font-extrabold text-center font-mono">Photo Gallery</h1>
+        <div className="flex justify-center mt-4">
+          <DarkModeToggle />
+        </div>
+      </header>
+      <main className="container mx-auto px-4">
+        <ImageGrid />
+        <Pagination />
+      </main>
     </div>
   );
 }

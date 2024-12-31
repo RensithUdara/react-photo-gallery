@@ -5,7 +5,7 @@ import { galleryReducer } from './gallery/galleryslice';
 const store = configureStore({
     reducer: {
         theme: themeReducer,
-        galler: galleryReducer
+        gallery: galleryReducer
     }
 });
 

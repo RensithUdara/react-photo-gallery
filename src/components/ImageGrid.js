@@ -7,11 +7,11 @@ function ImageGrid() {
 
     const dispatch = useDispatch();
 
-    const { images, loading, error } = useSelector((state) => state.gallery);
+    const { images, loading, error , page} = useSelector((state) => state.gallery);
 
     useEffect(() => {
-        dispatch(fetchImages());
-    }, [dispatch]);
+        dispatch(fetchImages(page));
+    }, [dispatch , page]);
 
     if (loading) {
         return <div>Loading...</div>;
