@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import { useSelector } from 'react-redux';
+import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
+  const darkMode = useSelector((state) => state.theme.darkMode); // Access dark mode state from Redux
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className={`py-2 min-h-screen transition-colors duration-300 ${darkMode ? 'bg-black text-white' : 'bg-white text-black'}`}
+    >
+      <h1 className='text-4xl font-bold text-center font-mono'>Photo Gallery</h1>
+      <DarkModeToggle />
     </div>
   );
 }
