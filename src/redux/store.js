@@ -5,8 +5,8 @@ import { galleryReducer } from './gallery/galleryslice';
 const store = configureStore({
     reducer: {
         theme: themeReducer,
-        gallery: galleryReducer
-    }
+        gallery: galleryReducer,
+    },
 });
 
 export default store;
